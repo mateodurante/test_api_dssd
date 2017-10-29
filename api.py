@@ -22,7 +22,7 @@ incidentes = [
             }
         ],
         'cantidadObjetos': 7,
-        'fechaIncidente': str(datetime.datetime.now())
+        'fechaIncidente': str(datetime.datetime.now().strftime("%Y/%m/%d"))
     },
     {
         'nroCliente': 4,
@@ -41,7 +41,7 @@ incidentes = [
             }
         ],
         'cantidadObjetos': 3,
-        'fechaIncidente': str(datetime.datetime.now())
+        'fechaIncidente': str(datetime.datetime.now().strftime("%Y/%m/%d"))
     },
 ]
 
