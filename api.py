@@ -8,6 +8,7 @@ incidentes = [
     {
         'nroCliente': 1,
         #'tipoIncidente': '',
+        'descripcionIncidente': "Me rompieron el rancho",
         'objetos': [
             {
                 'nombre': 'puerta',
@@ -26,6 +27,7 @@ incidentes = [
     {
         'nroCliente': 4,
         #'tipoIncidente': '',
+        'descripcionIncidente': "Me entraron a la choza",
         'objetos': [
             {
                 'nombre': 'puerta',
