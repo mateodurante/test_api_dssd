@@ -48,7 +48,7 @@ incidentes = [
 @app.route('/api/incidente/noAsignado', methods=['GET'])
 def get_tasks():
     #return jsonify({'incidentes': incidentes})
-    return jsonify(incidentes)
+    return jsonify(incidentes[1])
 
 if __name__ == '__main__':
     app.run(debug=True)
