@@ -56,7 +56,7 @@ def get_tasks():
 
 @app.route('/api/incidente/cambioEstado/recibido', methods=['POST'])
 def post_incident_status():
-    data = request.form
+    data = request.json
     inc = None
     print(data)
     #for i in incidentes:
