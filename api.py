@@ -57,11 +57,11 @@ def get_tasks():
 @app.route('/api/incidente/cambioEstado/recibido', methods=['POST'])
 def post_incident_status():
     data = request.json
-    inc = None
     print(data)
-    #for i in incidentes:
-    #    if i['idIncidente'] == post_id:
-    #        i['estado'] == 'recibido'
+    idIncidente = data['idIncidente']
+    for i in incidentes:
+        if i['idIncidente'] == idIncidente:
+            i['estado'] == 'recibido'
     return jsonify(incidentes[1])
     #return jsonify({'incidentes': incidentes})
     #return jsonify(incidentes[1])
