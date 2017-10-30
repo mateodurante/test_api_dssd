@@ -62,7 +62,7 @@ def post_incident_status():
     #for i in incidentes:
     #    if i['idIncidente'] == post_id:
     #        i['estado'] == 'recibido'
-    return 1
+    return jsonify(incidentes[1])
     #return jsonify({'incidentes': incidentes})
     #return jsonify(incidentes[1])
 
