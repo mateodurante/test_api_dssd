@@ -63,8 +63,17 @@ def post_incident_status():
         if i['idIncidente'] == idIncidente:
             i['estado'] == 'recibido'
     return jsonify(incidentes[1])
-    #return jsonify({'incidentes': incidentes})
-    #return jsonify(incidentes[1])
+
+@app.route('/api/incidente/cambioEstado/seguimiento', methods=['POST'])
+def post_incident_status():
+    data = request.json
+    print(data)
+    idIncidente = data['idIncidente']
+    for i in incidentes:
+        if i['idIncidente'] == idIncidente:
+            i['estado'] == 'seguimiento'
+    return jsonify(incidentes[1])
+
 
 if __name__ == '__main__':
     app.run(debug=True)
