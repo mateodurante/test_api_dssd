@@ -80,11 +80,11 @@ def generarPresupuesto(objetos):
 
 @app.route('/api/incidente/presupuesto1', methods=['POST'])
 def post_presupuesto1():
-    return generarPresupuesto(request)
+    return generarPresupuesto(request.data)
 
 @app.route('/api/incidente/presupuesto2', methods=['POST'])
 def post_presupuesto2():
-    return generarPresupuesto(request)
+    return generarPresupuesto(request.data)
 
 
 if __name__ == '__main__':
