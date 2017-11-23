@@ -74,6 +74,18 @@ def post_incident_status():
             i['estado'] == 'seguimiento'
     return jsonify(incidentes[1])
 
+def generarPresupuesto(objetos):
+    print(objetos)
+    return "ALGO QUE RETRIBUIR"
+
+@app.route('/api/incidente/presupuesto1', methods=['POST'])
+def post_presupuesto1():
+    return generarPresupuesto(request)
+
+@app.route('/api/incidente/presupuesto2', methods=['POST'])
+def post_presupuesto2():
+    return generarPresupuesto(request)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
