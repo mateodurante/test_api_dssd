@@ -76,6 +76,26 @@ def post_incident_status2():
             i['estado'] == 'seguimiento'
     return jsonify(incidentes[1])
 
+@app.route('/api/incidente/cambioEstado/aceptado', methods=['POST'])
+def post_incident_status3():
+    data = request.json
+    print(data)
+    idIncidente = data['idIncidente']
+    for i in incidentes:
+        if i['idIncidente'] == idIncidente:
+            i['estado'] == 'aceptado'
+    return jsonify(incidentes[1])
+
+@app.route('/api/incidente/cambioEstado/rechazado', methods=['POST'])
+def post_incident_status4():
+    data = request.json
+    print(data)
+    idIncidente = data['idIncidente']
+    for i in incidentes:
+        if i['idIncidente'] == idIncidente:
+            i['estado'] == 'rechazado'
+    return jsonify(incidentes[1])
+
 def generarPresupuesto(objetos):
     s = objetos
     ran = int(len(s) // 3 + len(s) * 2.5)
