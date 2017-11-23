@@ -99,7 +99,7 @@ def post_incident_status4():
 
 def nombresDeObjetos(s):
     m = re.findall('nombre=(.+?)}', s)
-    c = re.findall('cantidad=(.+?)}', s)
+    c = re.findall('cantidad=(.+?),', s)
     if len(m) == len(c):
         for i in range(len(m)):
             m[i] = m[i] + ' (' + c[i] + ')'
