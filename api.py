@@ -77,8 +77,10 @@ def post_incident_status2():
     return jsonify(incidentes[1])
 
 def generarPresupuesto(objetos):
-    print(objetos)
-    return "ALGO QUE RETRIBUIR"
+    s = objetos
+    ran = int(len(s) // 3 + len(s) * 2.5)
+    presupuesto = len(s) * 100 + random.randrange(0-ran, ran*3)
+    return "Se presupuesta un valor de {0}".format(presupuesto)
 
 def getElements(s):
     start = s.find( '{' )
@@ -87,18 +89,15 @@ def getElements(s):
         result = s[start+1:end]
 
 def parseArray(request):
-    s = request.data.decode('utf-8')
-    ran = int(len(s) // 3 + len(s) * 2.5)
-    presupuesto = len(s) * 100 + random.randrange(0-ran, ran*3)
-    return "Se presupuesta un valor de {0}".format(presupuesto)
+    return None
 
 @app.route('/api/incidente/presupuesto1', methods=['POST'])
 def post_presupuesto1():
-    return generarPresupuesto(parseArray(request))
+    return generarPresupuesto(request.data.decode('utf-8'))
 
 @app.route('/api/incidente/presupuesto2', methods=['POST'])
 def post_presupuesto2():
-    return generarPresupuesto(parseArray(request))
+    return generarPresupuesto(request.data.decode('utf-8'))
 
 
 if __name__ == '__main__':
