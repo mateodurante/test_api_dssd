@@ -1,6 +1,8 @@
 #!flask/bin/python
 from flask import Flask, jsonify, request
 import datetime
+import json
+import random
 
 app = Flask(__name__)
 
@@ -78,13 +80,25 @@ def generarPresupuesto(objetos):
     print(objetos)
     return "ALGO QUE RETRIBUIR"
 
+def getElements(s):
+    start = s.find( '{' )
+    end = s.find( '}' )
+    if start != -1 and end != -1:
+        result = s[start+1:end]
+
+def parseArray(request):
+    s = request.data.decode('utf-8')
+    ran = int(len(s) // 3 + len(s) * 2.5)
+    presupuesto = len(s) * 100 + random.randrange(0-ran, ran*3)
+    return "Se presupuesta un valor de {0}".format(presupuesto)
+
 @app.route('/api/incidente/presupuesto1', methods=['POST'])
 def post_presupuesto1():
-    return generarPresupuesto(request.data)
+    return generarPresupuesto(parseArray(request))
 
 @app.route('/api/incidente/presupuesto2', methods=['POST'])
 def post_presupuesto2():
-    return generarPresupuesto(request.data)
+    return generarPresupuesto(parseArray(request))
 
 
 if __name__ == '__main__':
