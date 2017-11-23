@@ -65,7 +65,7 @@ def post_incident_status():
     return jsonify(incidentes[1])
 
 @app.route('/api/incidente/cambioEstado/seguimiento', methods=['POST'])
-def post_incident_status():
+def post_incident_status2():
     data = request.json
     print(data)
     idIncidente = data['idIncidente']
