@@ -3,6 +3,7 @@ from flask import Flask, jsonify, request
 import datetime
 import json
 import random
+import re
 
 app = Flask(__name__)
 
@@ -96,11 +97,21 @@ def post_incident_status4():
             i['estado'] == 'rechazado'
     return jsonify(incidentes[1])
 
+def nombresDeObjetos(s):
+    m = re.findall('nombre=(.+?)}', s)
+    c = re.findall('cantidad=(.+?)}', s)
+    if len(m) == len(c):
+        for i in range(m):
+            m[i] = m[i] + ' (' + c[i] + ')'
+    return m
+
+
 def generarPresupuesto(objetos):
     s = objetos
+    nuevosObjetos = ', '.join(nombresDeObjetos(s))
     ran = int(len(s) // 3 + len(s) * 2.5)
     presupuesto = len(s) * 100 + random.randrange(0-ran, ran*3)
-    return "Se presupuesta un valor de {0}".format(presupuesto)
+    return "Se presupuesta un valor de {0} para los objetos {1}".format(presupuesto, nuevosObjetos)
 
 def getElements(s):
     start = s.find( '{' )
