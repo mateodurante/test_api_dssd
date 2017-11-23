@@ -101,7 +101,7 @@ def nombresDeObjetos(s):
     m = re.findall('nombre=(.+?)}', s)
     c = re.findall('cantidad=(.+?)}', s)
     if len(m) == len(c):
-        for i in range(m):
+        for i in range(len(m)):
             m[i] = m[i] + ' (' + c[i] + ')'
     return m
 
